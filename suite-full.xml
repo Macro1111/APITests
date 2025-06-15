@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Full Suite" parallel="false">
+    <test name="Tests full suite">
+        <classes>
+            <class name="com.globan.automation.tests.AllTests"/>
+        </classes>
+    </test>
+</suite>
