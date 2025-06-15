@@ -1,3 +1,12 @@
+<!--
+    Full Suite
+
+    This suite runs all the main automated tests of the project.
+    It includes the 'AllTests' class, which groups the test cases for the PerfDog API.
+    Configuration: sequential execution (parallel="false").
+    Usage: Run to validate the complete functionality of the API.
+-->
+
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Full Suite" parallel="false">
     <test name="Tests full suite">

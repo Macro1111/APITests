@@ -11,8 +11,20 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Utility class for generating sample data objects for testing purposes.
+ * This class provides methods to create lists of UserDTO, PetDTO, and OrderDTO objects
+ * with predefined sample data.
+ */
+
 public class ObjectFactory {
 
+
+    /**
+     * Generates a list of UserDTO objects with sample data.
+     *
+     * @return List of UserDTO objects
+     */
     public static List<UserDTO> userDTOList(){
         return Arrays.asList(
             new UserDTO(
@@ -77,6 +89,11 @@ public class ObjectFactory {
         );
     }
 
+    /**
+     * Generates a list of PetDTO objects with sample data.
+     *
+     * @return List of PetDTO objects
+     */
     public static List<PetDTO> petDTOList(){
         return Arrays.asList(
 
@@ -138,6 +155,11 @@ public class ObjectFactory {
 
     }
 
+    /**
+     * Generates a list of OrderDTO objects with sample data.
+     *
+     * @return List of OrderDTO objects
+     */
     public static List<OrderDTO> orderDTOS(){
         return Arrays.asList(
             new OrderDTO(
@@ -183,6 +205,14 @@ public class ObjectFactory {
             );
     }
 
+
+    /**
+     * Returns a random object from a specified type (User, Pet, or Order).
+     * The method shuffles the list of objects and returns the first one.
+     *
+     * @param object The type of object to return ("User", "Pet", or "Order").
+     * @return A random object of the specified type.
+     */
     public static Object randomObjectDTO(String object) {
         List<?> objectDTOList;
 

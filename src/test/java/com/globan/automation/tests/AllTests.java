@@ -15,15 +15,27 @@ import java.util.List;
 
 import static com.globan.automation.request.RequestBuild.response;
 
+/**
+ * Main test class containing automated tests for the PerfDog API.
+ * Each method tests an independent functionality of the pet store.
+ */
 
 public class AllTests extends TestsRunner {
 
+    /**
+     * Test that creates a user and performs login.
+     * Verifies that the login is successful.
+     */
     @Test(priority = 1, testName ="1-2 User creation and login")
     public void userCreatedAndLogin() {
         Response response = createAndLoginUser();
         Assert.assertEquals(response.getStatusCode(),200, "The login was not successful");
     }
 
+    /**
+     * Test that retrieves all pets with status "available".
+     * Verifies that all listed pets are available.
+     */
     @Test(priority = 2, testName ="3 All pets that are available")
     public void availablePets(){
         List<PetDTO> petDTOList = response(getBaseURL(),"/pet/findByStatus?status=available").as(new TypeRef<List<PetDTO>>() {});
@@ -33,6 +45,11 @@ public class AllTests extends TestsRunner {
         Assert.assertTrue(allAvailable, "Not all pets are available");
     }
 
+
+    /**
+     * Test that creates a pet and then retrieves its data by ID.
+     * Verifies that the retrieved data matches the created pet.
+     */
     @Test(priority = 3, testName ="4 Consult Pet")
     public void petCreatedGet() {
         PetDTO newPet = (PetDTO)ObjectFactory.randomObjectDTO("Pet");
@@ -42,6 +59,11 @@ public class AllTests extends TestsRunner {
         Assert.assertEquals(newPet.toString(), requestPet.toString(), "The pet was not requested correctly");
     }
 
+
+    /**
+     * Test that creates a purchase order for a pet.
+     * Verifies that the order is created successfully.
+     */
     @Test(priority = 4, testName ="5 Create purchase order")
     public void createOrder(){
         OrderDTO newOrder = (OrderDTO)ObjectFactory.randomObjectDTO("Order");
@@ -52,6 +74,10 @@ public class AllTests extends TestsRunner {
 
     }
 
+    /**
+     * Test that logs out a user.
+     * Verifies that the logout is successful.
+     */
     @Test(priority = 6, testName ="6 User logout")
     public void userLogout() {
         createAndLoginUser();
@@ -60,7 +86,11 @@ public class AllTests extends TestsRunner {
         Assert.assertEquals(response.getStatusCode(),200, "The logout was not successful");
     }
 
-
+    /**
+     * Creates a random user, registers it, and performs login.
+     *
+     * @return Response from the login request.
+     */
     private Response createAndLoginUser() {
         UserDTO newUser = (UserDTO) ObjectFactory.randomObjectDTO("User");
         RequestBuild.createResponse(getBaseURL(), "/user", newUser);
