@@ -3,7 +3,7 @@
 APITests is an automated Java project that validates the main functionalities of the "PerfDog" pet store API, based on the [Swagger Petstore API documentation](https://petstore.swagger.io). The test suite simulates real-world API usage, ensuring that essential features such as user registration, authentication, product browsing, and order processing work as expected from an end-user perspective.
 
 > **⚠️ Warning:**  
-> The PerfDog server is a public server, which means that other users may be interacting with and modifying the data simultaneously during the execution of your tests. This can cause unexpected results or test failures unrelated to problems in your code. If a test fails, it is recommended to re-run and review the case to determine if the failure was due to interference from other users.  
+> The PerfDog server is a public server, which means that other users may be interacting with and modifying the data simultaneously during the execution of your tests. This can cause unexpected results or test failures unrelated to problems in the code. If a test fails, it is recommended to re-run and review the case to determine if the failure was due to interference from other users.  
 >
 > The development of the tests was conditioned by the public nature of the server, as described above.  
 >
